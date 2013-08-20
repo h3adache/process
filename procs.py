@@ -15,6 +15,6 @@ def listRunning(proc, liveOnly=False):
 
 proc = raw_input("enter process id: ")
 liveOnly = raw_input("live [Y,N] (default N): ")
-liveOnly = true if liveOnly == 'Y' else liveOnly == 'y'
+liveOnly = True if liveOnly == 'Y' else liveOnly == 'y'
 print "Subtasks %s of Process %s: " % (liveOnly, proc)
 listRunning(proc, liveOnly)
