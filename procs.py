@@ -10,9 +10,9 @@ def listRunning(proc, liveOnly=False):
     for task in subtasks.splitlines():
         stats = execute("cat /proc/%s/task/%s/stat" % (proc, task)).split()
         if stats[2] == 'R':
-            print datetime.now(), "Subtask", stats[0], "is running on core", stats[len(stats) - 6]
+            print datetime.now(), "Subtask", stats[1], "pid:", stats[0], "is running on core", stats[len(stats) - 6]
         elif not liveOnly:
-            print datetime.now(), "Subtask", stats[0], "is last run on core", stats[len(stats) - 6]
+            print datetime.now(), "Subtask", stats[1], "pid:", stats[0], "is last run on core", stats[len(stats) - 6]
 
 proc = raw_input("enter process id: ")
 
